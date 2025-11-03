@@ -35,4 +35,4 @@ wget https://git.zju.edu.cn/zju-sys/sys1/sys1-sp23/uploads/bed18108ed82dc45f20f4
 
 跟 lab0-2 类似, 只不过这次代码是要手写, 之前是由 Logisim-evolution 自动生成.
 
-![](../../assets/lab0_4.jpg)
+![](../../assets/lab0_4.png)
