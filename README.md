@@ -21,11 +21,16 @@
 - ZJU_MM
   - ZJU MATH2731MZ: 数学建模
 
+### 编程基础
+
+
 ### 算法
 
 - ZJU_ADS
   - ZJU CS2045M: 高级数据结构与算法分析
- 
+- ZJU_NA
+  - ZJU CS2090M: 数值分析
+
 ### 系统
 
 - ZJU_SYS_I
