@@ -34,7 +34,7 @@
 - ZJU_SYS_II
   - ZJU CS2052M: 计算机系统 II
 
-## 人工智能
+### 人工智能
 
 - Harvard_CS50_AI
 
