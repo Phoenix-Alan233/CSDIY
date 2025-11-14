@@ -16,34 +16,34 @@
 ### 数理基础
 
 - ZJU_PMS
-  - MATH2461FZ: 概率论和数理统计
+  - MATH 2461FZ: 概率论和数理统计
 
 - ZJU_MM
-  - MATH2731MZ: 数学建模
+  - MATH 2731MZ: 数学建模
 
 ### 编程基础
 
-- Stanford_CS110L_Rust
+- Stanford_rust
   - CS 110L: Safety in Systems Programming
 
 ### 算法
 
 - ZJU_ADS
-  - CS2045M: 高级数据结构与算法分析
+  - CS 2045M: 高级数据结构与算法分析
 - ZJU_NA
-  - CS2090M: 数值分析
+  - CS 2090M: 数值分析
 
 ### 系统
 
 - ZJU_SYS_I
-  - CS1028M: 计算机系统 I
+  - CS 1028M: 计算机系统 I
 
 - ZJU_SYS_II
-  - CS2052M: 计算机系统 II
+  - CS 2052M: 计算机系统 II
 
 ### 人工智能
 
-- Harvard_CS50_AI
+- Harvard_AI
 
 ## 竞赛
 
