@@ -15,13 +15,18 @@
 
 ### 数理基础
 
+- ZJU_MA
+  - MATH 1135G: 微积分 (甲) I
+  - MATH 1164GH: 数学分析 (甲) II (H)
+- ZJU_MM
+  - MATH 2731MZ: 数学建模
 - ZJU_PMS
   - MATH 2461FZ: 概率论和数理统计
 
-- ZJU_MM
-  - MATH 2731MZ: 数学建模
-
 ### 编程基础
+
+- MIT_shell
+  - missing-semester: The Missing Semester of Your CS Education
 
 - Stanford_rust
   - CS 110L: Safety in Systems Programming
@@ -33,7 +38,7 @@
 - ZJU_NA
   - CS 2090M: 数值分析
 
-### 系统
+### 系统 (因课程原因, 暂时隐藏)
 
 - ZJU_SYS_I
   - CS 1028M: 计算机系统 I
