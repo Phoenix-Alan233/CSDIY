@@ -53,6 +53,7 @@
 ### 人工智能
 
 - Harvard_AI
+  - CS 50 AI: Introduction to Artificial Intelligence with Python
 
 ## 竞赛
 
