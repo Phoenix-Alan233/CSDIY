@@ -31,6 +31,10 @@
 - Stanford_rust
   - CS 110L: Safety in Systems Programming
 
+- ZJU_ASM (因课程原因, 不能公开)
+  - 211G0080: 汇编语言程序设计基础
+  - CS 1024M: 汇编语言
+
 ### 算法
 
 - ZJU_ADS

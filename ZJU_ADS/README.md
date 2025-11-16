@@ -1,4 +1,9 @@
-# ZJU CS2045M: 高级数据结构与算法分析
+## ZJU_ADS (Advanced Data Structures and Algorithm Analysis)
+
+- CS2045M: 高级数据结构与算法分析
+- 学分: 4.0
+- 任课教师: 王灿
+- 修读学期: 2025-2026, 大二秋冬
 
 ## 一些资源
 
