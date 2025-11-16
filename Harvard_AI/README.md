@@ -7,6 +7,13 @@
     - Lec 1. 
 - Course Lab:
     - Lab 1. Degrees: 给定数据集下, 计算两点间最短路.
+      ![](assets/Degrees.png) 
+      - 使用 bfs 同时记录前驱.
+    - Lab 2. Tic-Tac-Toe: 实现一个人机交互, 玩井字棋.
+      ![](assets/Tic-Tac-Toe.png) 
+      - 使用"强化学习"的一套流程, 根据当前的 state 选择最优的 action. 我使用了 alpha-beta 剪枝优化 minimax 搜索, 实测效率有明显提升.
+
+---
 
 ## Lec 0. Search
 
