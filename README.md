@@ -37,7 +37,7 @@
 
 ### 算法
 
-- ZJU_ADS
+- ZJU_ADS (lab 这一块不能公开, 未来或许会填补)
   - CS 2045M: 高级数据结构与算法分析
 - ZJU_NA
   - CS 2090M: 数值分析
@@ -54,6 +54,8 @@
 
 - Harvard_AI
   - CS 50 AI: Introduction to Artificial Intelligence with Python
+- ZJU_AI
+  - CS 2065M: 人工智能引论
 
 ## 竞赛
 
