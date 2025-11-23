@@ -57,6 +57,12 @@
 - ZJU_AI
   - CS 2065M: 人工智能引论
 
+### LLM
+
+- Stanford_LLM
+  - CS 336: Language Modeling from Scratch
+  - https://stanford-cs336.github.io/spring2025/index.html
+
 ## 竞赛
 
 - CMC: 全国大学生数学竞赛
