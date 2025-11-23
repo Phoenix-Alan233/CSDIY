@@ -160,4 +160,57 @@ $$
 - 线性判别分析 (linear discriminant analysis, LDA): 基于监督学习的降维方法. 对于一组高维数据样本, LDA 利用其类别信息, 将其线性投影到一个低维空间上, 使得: 在低维空间中, 同一类别的样本尽可能靠近, 不同类别的样本尽可能彼此远离.
   
   ![](assets/10.png)
-- 
+
+  假设样本集为 $\mathcal D=\{(x_i,y_i)\}_{i=1}^{n}$, 样本 $\bold{x_i}\in \mathbb R^d$ 的标签为 $y_i$ (其中 $y_i$ 的取值范围是 $\{C_1,\cdots,C_k\}$). 
+  
+  定义 $\bold{X}$ 为所有样本构成的集合、$N_i$ 为第 $i$ 个类别所包含样本个数、$\bold{X_i}$ 为第 $i$ 类样本的集合, $\bold{m}$ 为所有样本的均值向量, $\bold{m_i}$ 为第 $i$ 类样本的均值向量. 
+
+  记 $\sum_i$ 为第 $i$ 类样本的协方差矩阵, 则 $\sum_i =\sum\limits_{\bold{x}\in \bold{X_i}} (\bold{x}-\bold{m_i})(\bold{x}-\bold{m_i})^T$.
+
+  考虑一个简单点的情形, $K=2$ (即二分类问题, 训练样本归属于 $C_1$ 或 $C_2$ 两个类别). 假如我们通过如下线性函数投影到一维空间上: $y(\bold{x})=\bold{w}^T\bold{x}$, 其中 $\bold{w}\in \mathbb R^d$. 那么投影之后类别 $C_1$ 的协方差矩阵 $s_1$ 为:
+  
+  $$
+  s_1=\sum_{\bold{x}\in C_1} (\bold{w}^T\bold{x}-\bold{w}^T\bold{m_1})^2=\bold{w}^T \sum_{\bold{x} \in C_1} [(\bold{x}-\bold{m_1})(\bold{x}-\bold{m_1})^T]\bold{w}
+  $$
+ 
+  我们惊奇的发现 $s_1=\bold{w}^T \sum_1 \bold{w}$. 由于将数据样本投影到了一维空间, 所以这里 $s_1,s_2$ 都是实数 ($s_1,s_2$ 可用来衡量同一类别的样本之间的"分散程度"). 此外, $m_1=\bold{w}^T \bold{m_1},m_2=\bold{w}^T\bold{m_2}$. 
+  
+  对于特征降维, 无非就是寻找最优的 $\bold{w}$. 我们希望最大化如下目标 $J(\bold{w})$:
+
+  $$
+  \begin{aligned}
+  J(\bold{w})&=\frac{||m_2-m_1||^2}{s_1+s_2}\\
+  &=\frac{||\bold{w}^T(\bold{m_2}-\bold{m_1})||^2_2}{\bold{w}^T \sum_1 \bold{w}+\bold{w}^T \sum_2\bold{w}}\\
+  &=\frac{\bold{w}^T (\bold{m_2}-\bold{m_1})(\bold{m_2}-\bold{m_1})^T \bold{w}}{\bold{w}^T (\sum_1+\sum_2)\bold{w}}
+  \end{aligned}
+  $$
+
+  其中, 我们通常定义 $\bold{S_b}=(\bold{m_2}-\bold{m_1})(\bold{m_2}-\bold{m_1})^T$ 为**类间散度矩阵 (between-class scatter matrix)**, 衡量两个类别均值点之间的"分离"程度; $\bold{S_w}=\sum_1+\sum_2$ 为**类内散度矩阵 (within-class scatter matrix)**, 衡量每个类别中数据点的"分离"程度.
+
+  之后的求导过程是平凡的, 得到 $\bold{w}=\bold{S_w}^{-1}(\bold{m_2}-\bold{m_1})$.
+
+- 主成分分析 (principal component analysis): 分析数据特征的主要成分, 使用这些主要成分来代替原始数据.
+  
+  首先记**样本方差 (sample variance)** 为 $\text{var}(x)=\frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i-u)^2$, 其中 $u=\frac{1}{n} \sum\limits_{i=1}^{n} x_i$ 为样本均值. 梦回普物实验啊, 分母为 $n-1$ 的目的是让方差的估计是无偏估计, 其实我也不懂.
+
+  **协方差**衡量了两个变量之间的相关度, $\text{cov}(X,Y)=\frac{1}{n-1}\sum\limits_{i=1}^{n} (x_i-E(X))(y_i-E(Y))$. 但协方差会受到变量取值尺度的影响, 因此我们通常用**相关系数 (correlation coefficient)** 将两组变量之间的关系规整到一定的取值范围内,
+
+  $$
+  \text{corr}(X,Y)=\frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}\in [-1,1]
+  $$
+
+  主成分分析的思想是将 $d$ 维特征数据映射到 $l$ 维空间 (一般来说 $d>>l$), 去除原始数据之间的冗余性. 降维需要尽可能将数据往**方差最大的方向**进行投影. 一旦发现了方差最大的投影方向, 则继续寻找保持方差第二的方向且进行投影, 其目标是使得数据每一维的方差都尽可能大.
+
+  ![](assets/11.png)
+
+  具体的实现细节, PPT 上也没写, 我也不想知道.
+
+- 主成分分析可用于"特征人脸"识别.
+
+### 演化学习
+
+- 说了半天不就是遗传算法吗, 感觉了解即可. 没啥用.
+
+## TODO
+
+其实我觉得有必要学习一下求导. 如果A是实对称矩阵，则x^TAx对x的导数为dx^TAx/x=2Ax

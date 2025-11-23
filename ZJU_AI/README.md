@@ -22,4 +22,6 @@
     - 使用 LENET 搭建神经网络, 在 MNIST 数据集上测试, 准确率达 98.1%.
     - 在 MobileNetV2 模型上微调, 准确率达 94.6%.
     
-    ![](assets/plastic.png)
+    ![](assets/plastic-1.png)
+
+    ![](assets/plastic-2.png)
