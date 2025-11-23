@@ -21,3 +21,5 @@
   - lab 3. LENET_MNIST & MobileNetV2_垃圾分类
     - 使用 LENET 搭建神经网络, 在 MNIST 数据集上测试, 准确率达 98.1%.
     - 在 MobileNetV2 模型上微调, 准确率达 94.6%.
+    
+    ![](assets/plastic.png)
