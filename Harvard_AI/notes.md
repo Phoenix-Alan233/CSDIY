@@ -1,3 +1,5 @@
+本身就会的东西就不记录了, 这里写一点新学到的.
+
 ## Lec 0. Search
 
 ### A* Search
@@ -34,3 +36,11 @@ function MIN-VALUE(state):
         v = MIN(v, MAX-VALUE(RESULT(state, action)))
     return v
 ```
+
+## Lec 1. Knowledge
+
+- sentence: an **assertion** about the world in a knowledge representation language.
+- model: assignment of a truth value to every propositional symbol.
+  - eg. $P$: It is raining; $Q$: It is a Tuesday. Model: {$P$ = `true`, $Q$ = `false`}.
+- Entailment：$\alpha ⊨ \beta$. In every model in which sentence $\alpha$ is `true`, sentence $\beta$ is also `true`.
+- Inference: the process of deriving new sentences from old ones.  
