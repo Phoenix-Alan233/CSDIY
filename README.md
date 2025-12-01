@@ -2,7 +2,8 @@
 
 ```
 .
-├── README.md    // 记录课程摘要, 笔记, 心得体会
+├── README.md    // 记录课程摘要, 心得体会
+├── notes.md     // 笔记
 ├── assets       // 存放图片
 ├── book         // 教材, 辅学讲义
 ├── courseware   // 课程课件
