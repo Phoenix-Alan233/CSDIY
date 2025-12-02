@@ -25,3 +25,8 @@
     ![](assets/plastic-1.png)
 
     ![](assets/plastic-2.png)
+
+  - lab 4. Agent
+    - 使用 Qwen3-32B 的 API, 尝试构造 ReAct Agent.
+    
+    ![](assets/agent.png)
