@@ -18,7 +18,7 @@
 
     ![](assets/Tic-Tac-Toe.png) 
     
-    - 根据当前的 state 选择最优的 action. 我使用了 alpha-beta 剪枝优化 minimax 搜索, 实测效率有明显提升.
+    - 根据当前的 state 选择最优的 action. 我使用了 alpha-beta pruning 优化 minimax 搜索, 实测效率有明显提升.
 
   - Lab 3. knights: 构建知识库, 使用自动逻辑求解器, 判断每个人是 Knight 还是 Knave.
     
@@ -31,3 +31,9 @@
     ![](assets/minesweeper.png)
 
     - 核心在于 `add_knowledge` 的处理, 每次新加一条信息, 可能会导致某些信息得出 "cells 全是雷 / 安全" 的结论, 也可能导致两个信息间存在子集关系, 可以作差得到更小规模的信息, 并且可能连锁反应, 需要一直迭代, 直到得不到有效信息.
+
+  - Lab 5. pagerank: 很经典的 Google 搜索引擎的网页"重要性"排序方法. 
+    
+    ![](assets/pagerank.png)
+
+    - 该 lab 采用了两种方式, 一种是依概率采样 10000 次, 一种是迭代足够多轮直至**一致收敛**.
