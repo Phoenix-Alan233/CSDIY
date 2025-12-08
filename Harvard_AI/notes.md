@@ -106,3 +106,22 @@ function MIN-VALUE(state):
 
 - Hidden Markov Model: a Markov model for a system with hidden states that generate some observed event.
 
+---
+
+## Lec 3. Optimization
+
+- Linear Programming Algorithms:
+  - Simplex
+  - Interior-Point
+
+- Constraint Satisfaction Problem (CSP):
+  - Set of variables $\{x_1,x_2,\cdots,x_n\}$
+  - Set of domains for each variable $\{D_1,D_2,\cdots,D_n\}$
+  - Set of constraints $C$
+
+- hard constraints: constraints that must be satisfied in a correct solution
+- soft constraints: constraints that express some notion of which solutions are preferred over others
+
+---
+
+## Lec 4. 

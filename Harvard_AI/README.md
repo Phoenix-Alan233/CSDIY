@@ -6,7 +6,9 @@
   - Lec 0. Search: Depth-First Search, Breadth-First Search, Greedy Best-First Search, A* Search, Minimax, Alpha-Beta Pruning.
   - Lec 1. Knowledge: Propositional Logic. Entailment. Inference. Model Checking. Resolution. First Order Logic.
   - Lec 2. Uncertainty: Probability. Conditional Probability. Random Variables. Independence. Bayes’ Rule. Joint Probability. Bayesian Networks. Sampling. Markov Models. Hidden Markov Models.
-- 有 quiz 和 project (我称之为 lab)
+  - Lec 3. Optimization: Local Search. Hill Climbing. Simulated Annealing. Linear Programming. Constraint Satisfaction. Backtracking Search.
+
+- 有 quiz 和 project (我称之为 lab). quiz 我都完成了, lab 如下, 还挺有意思的!
 
 - Course Lab:
   - Lab 1. Degrees: 给定数据集下, 计算两点间最短路.
@@ -38,9 +40,22 @@
 
     - 该 lab 采用了两种方式, 一种是依概率采样 10000 次, 一种是迭代足够多轮直至**一致收敛**.
   
-  - Lab 6. heredity: 疾病遗传, 给出家族图谱 (每个人的父母, 是否有疾病, 可能未知), 在 Bayesian Network 上使用 reject sampling 进行估计所有人可能的**显性基因条数** (即概率分布), 以及有疾病的概率.
+  - Lab 6. heredity: 疾病遗传, 给出家族图谱 (每个人的父母, 是否有疾病, 可能未知), 在 Bayesian Network 上使用 rejection sampling 进行估计所有人可能的**显性基因条数** (即概率分布), 以及有疾病的概率.
     
     ![](assets/heredity.png)
 
     - 因为数据集较小, 所以 `main` 函数部分 $3^{人数}\times 2^{未知疾病人数}$ 枚举所有可能性, 但事实上如果数据集较大, 我们可以依概率进行采样计算.
     - 核心是 `joint_probability` 的计算, 弄懂这一块应该就彻底 get 到贝叶斯网络的精髓了.
+  
+  - Lab 7. crossword: 经典的填词游戏, 给定地图和单词集, 将问题抽象成 Constraint Satisfaction Problem (CSP), 通过启发式搜索寻找一个可行解.
+    
+    ![](assets/crossword1.png)
+
+    ![](assets/crossword2.png)
+
+    - 一个比较复杂的 lab, 需要补全 8 个函数.
+
+    - 将每一条 (行/列) 试做一个 `Variable`, 用 `domains` 记录每个 `Variable` 目前还可填的单词集合. 那么它需要满足 unary-consistency 和 arc-consistency. 在本题, unary 即单词长度得等于条的长度; arc 即两个 `Variable` 交叉的格子字母得一致. 
+    
+    - 使用 `ac3` 算法实现 `domains` 的更新.
+    - 在 `backtrack` 的过程中, 我们采用两个启发式算法, 一个是 `select_unassigned_variable` 选择当前处理哪个 `Variable`, 另一个是 `order_domain_values` 对当前可填的单词进行排序 (按该顺序依次穷举). 实测这两个乱取跑的似乎也飞快, 当然我后来改成启发式实现了, 跑了几组数据都没啥问题.
