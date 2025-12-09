@@ -124,4 +124,86 @@ function MIN-VALUE(state):
 
 ---
 
-## Lec 4. 
+## Lec 4. Learning
+
+这堂课我将其划分为 supervised learning, reinforcement learning, unsupervised learning.
+
+
+- supervised learning: given a data set of input-output pairs, learn a function to map inputs to outputs.
+
+- nearest-neighbor classification: algorithm that, given an input, chooses the class of the nearest data point to that input. 就是说, 每次新增一个数据, 选择离它最近的数据, 分配跟它同一个类别。
+    - k-nearest-neighbor classification (KNN): chooses the most common class out of the $k$ nearest data points to that input.
+
+- perceptron learning:
+  - Weight vector $\bold{w}=(w_0,w_1,w_2)$, Input vector $\bold{x}=(1,x_1,x_2)$
+  - $h_{\bold{w}}(\bold{x})=[\bold{w}\cdot \bold{x} \ge 0]$.
+  - rule: Given data point $(\bold{x},y)$, update each weight according to $w_i\leftarrow w_i+\alpha (y-h_{\bold{w}}(\bold{x}))\times x_i$.
+
+- Support Vector Machines:
+  
+  ![](assets/2.png)
+
+  ![](assets/3.png)
+
+  - **maximum margin separator**: boundary that maximizes the distance between any of the data points. 也就是找一条线划分两个类别, **最大化** 线与点集的最近距离. 注意不一定要求线性, 曲线也可以.
+
+- regression: supervised learning task of learning a function mapping an input point to a continuous value.
+
+- overfitting: a model that fits too closely to a particular data set and therefore may fail to generalize to future data.
+  
+  ![](assets/4.png)
+  
+  比如这样, 很明显本来一条线就挺好的, 但过拟合导致陷进去了这么多.
+
+- regularization: penalizing hypotheses that are more complex to favor simpler, more general hypotheses
+  
+  $$
+  \text{cost}(h)=\text{loss}(h)+\lambda \cdot \text{complexity}(h)
+  $$
+
+- holdout cross-validation: splitting data into a **training set** and a **valid set**, such that learning happens on the training set and is evaluated on the valid set.
+  - k-fold cross-validation: splitting data into $k$ sets, and experimenting $k$ times, using each set as a valid set once, and using remaining data as training set.
+
+---
+
+- reinforcement Learning: given a set of rewards or punishments, learn what actions to take in the future.
+  
+  ![](assets/5.png)
+
+  - Markov Decision Process: model for decision-making, representing states, actions, and their rewards.
+    - Set of states $S$
+    - Set of actions $\text{ACTIONS}(s)$
+    - Transition model $P(s'|s,a)$
+    - Reward function $R(s,a,s')$
+
+  - Q-learning: method for learning a function $Q(s,a)$, estimate of the value of performing action $a$ in state $s$.
+    - Start with $Q(s,a)=0$ for all $s,a$.
+    - When we taken an action and receive a reward:
+      - Estimate the value of $Q(s,a)$ based on current reward and expected future rewards
+      - Update $Q(s,a)$ to take into account old estimate as well as our new estimate
+      
+      $$
+      Q(s,a)\leftarrow Q(s,a)+\alpha (\text{new value estimate}-\text{old value estimate})
+      $$
+
+      即:
+
+      $$
+      Q(s,a)\leftarrow Q(s,a)+\alpha ((r+\text{future reward estimate})-Q(s,a))
+      $$
+
+      其中 $\text{future reward estimate}$ 可以用 $\gamma \cdot \max_{a'} Q(s',a')$ 来估计.
+
+  - Greedy Decision-Making: When in state $s$, choose action $a$ with highest $Q(s,a)$.
+  
+  - $\varepsilon$ - greedy: **Explore vs. Exploit** 
+    - Set $\varepsilon$ equal to how often we want to move randomly.
+    - With probability $1-\varepsilon$, choose estimated best move.
+    - With probability $\varepsilon$, choose a random move.
+
+---
+
+- unsupervised learning: given input data without any additional feedback, learn patterns
+
+- clustering: organizing a set of objects into groups in such a way that similar objects tend to be in the same group.
+  - k-means clustering: algorithm for clustering data based on repeatedly assigning points to clusters and updating those clusters' centers.

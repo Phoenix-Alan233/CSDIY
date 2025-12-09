@@ -7,6 +7,7 @@
   - Lec 1. Knowledge: Propositional Logic. Entailment. Inference. Model Checking. Resolution. First Order Logic.
   - Lec 2. Uncertainty: Probability. Conditional Probability. Random Variables. Independence. Bayes’ Rule. Joint Probability. Bayesian Networks. Sampling. Markov Models. Hidden Markov Models.
   - Lec 3. Optimization: Local Search. Hill Climbing. Simulated Annealing. Linear Programming. Constraint Satisfaction. Backtracking Search.
+  - Lec 4. Learning: Supervised Learning. Nearest-Neighbor Classification. Perceptron Learning. Support Vector Machines. Regression. Loss Functions. Overfitting. Regularization. Reinforcement Learning. Markov Decision Processes. Q-Learning. Unsupervised Learning. k-means Clustering.
 
 - 有 quiz 和 project (我称之为 lab). quiz 我都完成了, lab 如下, 还挺有意思的!
 
@@ -55,7 +56,9 @@
 
     - 一个比较复杂的 lab, 需要补全 8 个函数.
 
-    - 将每一条 (行/列) 试做一个 `Variable`, 用 `domains` 记录每个 `Variable` 目前还可填的单词集合. 那么它需要满足 unary-consistency 和 arc-consistency. 在本题, unary 即单词长度得等于条的长度; arc 即两个 `Variable` 交叉的格子字母得一致. 
+    - 将每一条 (行/列) 视做一个 `Variable`, 用 `domains` 记录每个 `Variable` 目前还可填的单词集合. 那么它需要满足 unary-consistency 和 arc-consistency. 在本题, unary 即单词长度得等于条的长度; arc 即两个 `Variable` 交叉的格子字母得一致. 
     
     - 使用 `ac3` 算法实现 `domains` 的更新.
     - 在 `backtrack` 的过程中, 我们采用两个启发式算法, 一个是 `select_unassigned_variable` 选择当前处理哪个 `Variable`, 另一个是 `order_domain_values` 对当前可填的单词进行排序 (按该顺序依次穷举). 实测这两个乱取跑的似乎也飞快, 当然我后来改成启发式实现了, 跑了几组数据都没啥问题.
+  
+  - 
