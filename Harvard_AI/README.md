@@ -82,3 +82,15 @@
   - Lab 10. traffic: 使用 tensorflow 套件、GTSRB 数据集 (德国交通信号指示牌 bench), 训练一个能对交通指示牌进行分类的 model.
     
     ![](assets/traffic.png)
+
+  - Lab 11. parser: 使用 nltk 库, use the context-free grammar formalism to parse English sentences，实现：
+
+    - 句子的分词与预处理
+
+    - 使用 ChartParser 解析句子并生成语法树
+
+    - 对解析树进行遍历，提取最小的名词短语 (noun phrase chunks)
+    
+    ![](assets/parser.png)
+
+  
