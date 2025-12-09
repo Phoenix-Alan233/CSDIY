@@ -8,6 +8,9 @@
   - Lec 2. **Uncertainty**: Probability. Conditional Probability. Random Variables. Independence. Bayes’ Rule. Joint Probability. Bayesian Networks. Sampling. Markov Models. Hidden Markov Models.
   - Lec 3. **Optimization**: Local Search. Hill Climbing. Simulated Annealing. Linear Programming. Constraint Satisfaction. Backtracking Search.
   - Lec 4. **Learning**: Supervised Learning. Nearest-Neighbor Classification. Perceptron Learning. Support Vector Machines. Regression. Loss Functions. Overfitting. Regularization. Reinforcement Learning. Markov Decision Processes. Q-Learning. Unsupervised Learning. k-means Clustering.
+  - Lec 5. **Neural Networks**: Artificial Neural Networks. Activation Functions. Gradient Descent. Backpropagation. Overfitting. TensorFlow. Image Convolution. Convolutional Neural Networks. Recurrent Neural Networks.
+  - Lec 6. **Language**: Syntax. Semantics. Context-Free Grammar. nltk. n-grams. Bag-of-Words Model. Naive Bayes. Word Representation. word2vec. Attention. Transformers.
+
 
 - 有 quiz 和 project (我称之为 lab). quiz 我都完成了, lab 如下, 还挺有意思的!
 
@@ -75,3 +78,7 @@
 
     - 这里的 nim 游戏似乎跟我理解的不太一样, 它现在是说谁取走最后一个石子谁输. 不过结论是类似的, 只有全 $1$ 的 corner case. 初始给的是 $[1,3,5,7]$, 理论上先手必败.
     - 为了测试 AI 的聪明程度, 我把训练局数调到了 $10^6$, 然后让 human 先手, AI 后手, 实测 AI 很牛.
+  
+  - Lab 10. traffic: 使用 tensorflow 套件、GTSRB 数据集 (德国交通信号指示牌 bench), 训练一个能对交通指示牌进行分类的 model.
+    
+    ![](assets/traffic.png)
