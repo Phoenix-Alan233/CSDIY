@@ -93,4 +93,40 @@
     
     ![](assets/parser.png)
 
-  
+  - Lab 12. attention: 使用 Bert 模型, 对含有一个 [MASK] 的句子进行预测, 并输出每个 layer、每个 head 的注意力分布.
+    
+    ![](assets/attention1.png)
+
+    ![](assets/attention2.png)
+
+    ![](assets/Attention_Layer3_Head10.png)
+
+    ![](assets/Attention_Layer4_Head4.png)
+    
+    ![](assets/Attention_Layer7_Head10.png)
+
+    ![](assets/Attention_Layer12_Head10.png)
+
+    - BERT-base 有 12 层 encoder。每一层的作用相当于一次 “信息加工”：
+
+      - 低层（1–3 层）：学浅层模式（如词序、局部依赖关系、标点、子词结构）
+
+      - 中层（4–8 层）：学语法（如主谓关系、指代、成分结构）
+
+      - 高层（9–12 层）：学语义（如句子含义、代词指向、mask 填词逻辑）
+
+    - 因此 layer 越靠前，注意力通常越局部越“规则”；layer 越靠后，注意力越抽象、越“语义化”、越难直接从图里看出规律。
+    
+    - 因为单一 attention “注意一个方向” 太弱。多个 heads 可以让模型同时关注不同维度的语言特征。例如在同一层里：
+
+      - head 1：关注下一个词（你看到的模式）
+
+      - head 2：关注前一个词
+
+      - head 3：关注句子开头 [CLS]
+
+      - head 4：关注动词
+
+      - head 5：关注句子的关键名词
+
+      - head 6：关注句子的某个特定语义主题
