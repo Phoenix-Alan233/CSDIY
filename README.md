@@ -16,7 +16,7 @@
 
 ### 数理基础
 
-- ZJU_MA
+- [x] ZJU_MA
   - MATH 1135G: 微积分 (甲) I
   - MATH 1164GH: 数学分析 (甲) II (H)
 - ZJU_MM
@@ -32,7 +32,7 @@
 - Stanford_rust
   - CS 110L: Safety in Systems Programming
 
-- ZJU_ASM (因课程原因, 不能公开)
+- [x] ZJU_ASM (因课程原因, 不能公开)
   - 211G0080: 汇编语言程序设计基础
   - CS 1024M: 汇编语言
 
@@ -45,7 +45,7 @@
 
 ### 系统 (因课程原因, 暂时隐藏)
 
-- ZJU_SYS_I
+- [x] ZJU_SYS_I
   - CS 1028M: 计算机系统 I
 
 - ZJU_SYS_II
@@ -53,7 +53,7 @@
 
 ### 人工智能
 
-- Harvard_AI
+- [x] Harvard_AI
   - CS 50 AI: Introduction to Artificial Intelligence with Python
 - ZJU_AI
   - CS 2065M: 人工智能引论
@@ -65,4 +65,15 @@
 
 ## 竞赛
 
-- CMC: 全国大学生数学竞赛
+- [x] CMC: 全国大学生数学竞赛
+
+- [x] (CU)MCM: (全国)大学生数学建模竞赛
+
+- OI / ACM / XCPC: 算法竞赛
+  - 单独开放链接, https://github.com/Phoenix-Alan233/OI
+
+---
+
+待施工:
+
+- https://learning.edx.org/course/course-v1:MITx+15.455x+1T2025/home
