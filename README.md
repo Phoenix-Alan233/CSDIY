@@ -19,7 +19,7 @@
 - [x] ZJU_MA
   - MATH 1135G: 微积分 (甲) I
   - MATH 1164GH: 数学分析 (甲) II (H)
-- ZJU_MM
+- [x] ZJU_MM
   - MATH 2731MZ: 数学建模
 - ZJU_PMS
   - MATH 2461FZ: 概率论和数理统计
