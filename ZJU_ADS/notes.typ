@@ -313,7 +313,7 @@ C. FF has an improved approximation ratio, while NF does not.
 D. Neither of NF or FF has an improved approximation ratio.
 ]
 
-`C`. For #highlight("NF") algorithm, we construct $1/"eps"$ pairs:
+`C`. For #highlight("NF") algorithm, we construct $1/(2"eps")$ pairs:
 
 ```
 0.9 - eps, 2 * eps
@@ -321,7 +321,7 @@ D. Neither of NF or FF has an improved approximation ratio.
 0.9 - eps, 2 * eps
 ```
 
-Obviously $"OPT"=1/"eps"+1$, while $"NF"=2/"eps"$. Thus the approximation ratio is $2/(1+"eps") ~ 2$.
+Obviously $"OPT"=1/(2"eps")+1$, while $"NF"=1/"eps"$. Thus the approximation ratio is $2/(1+2"eps") ~ 2$.
 
 For #highlight("FF") algorithm, idk. But we can feel it is improved.
 
