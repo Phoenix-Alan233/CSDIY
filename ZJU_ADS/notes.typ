@@ -10,9 +10,14 @@
 #(c.warning)[
   - If not mentioned, we assume arrays are 1-indexed.
   - Some solutions are out-of-date, I am disappointed at this courseware.
+  - I omit some contents about data structures (because it's trivial for me) and algorithms (dp, greedy, etc). 
 ]
 
 #(c.summary)[
+  - NP-Completeness
+  - Approximation Algorithms
+  - Local Search
+  - Randomized Algorithms
   - Parallel Algorithms
   - External Sorting
 ]
@@ -77,9 +82,12 @@ First, we transform the problem into the $bold("Ranking")$ problem.
 
 #align(center, image("assets/Parallel_Merging.png", width: 100%))
 
+#(c.important)[
 #align(center, image("assets/Parallel_Merging_2.png", width: 100%))
 
-$T(n)=O(log n)$, $W(n)=O(n log n)$ and $P(n)=O(n)$.
+- Binary Search: $T(n)=O(log n)$, $W(n)=O(n log n)$ and $P(n)=O(n)$.
+- Serial Ranking: $T(n)=O(n)$, $W(n)=O(n)$ and $P(n)=O(1)$.
+]
 
 == Parallel Ranking
 
@@ -138,10 +146,12 @@ Given an array $A$ of size $n$, find the maximum element in $A$.
 
 #align(center, image("assets/External_Sorting_1.png", width: 100%))
 
-- Suppose the internal memory can handle $M$ records at a time, we define a #highlight($bold("run")$) as a sorted sequence of $M$ records.
-  - In this example, `(11, 81, 94)`, `(12, 35, 96)` ... are runs.
+- Suppose the internal memory can handle $M$ records at a time.
 
-- #highlight($bold("pass")$) means the number of loops of merging.
+- We define a #highlight($bold("run")$) (#highlight("顺串")) as a sorted sequence .
+  - eg. In the first pass (Internal Sorting Stage), `(11, 81, 94)` is a run.
+
+- #highlight($bold("pass")$) (#highlight("读写次数 / 趟数")) means the number of loops of merging.
   - In this example, we need $1+3$ passes to sort the data.
   - In general, if we have $N$ records to sort, we need $1+ceil(log_2(N/M))$ passes.
 
@@ -151,11 +161,123 @@ Given an array $A$ of size $n$, find the maximum element in $A$.
   Use a $k$-way merge (instead of $2$-way merge).
     - Pros: need $1+ceil(log_k (N/M))$ passes. 
     - Cons: need $2k$ tapes.
-- Q: Can we use $3$ tapes for a $2$-way merge?
+- Q: Can we use $k+1$ tapes for a $k$-way merge?
 
-  Yes (Fibonacci numbers).
+  Yes. eg. $2$-way merge, we can use $3$ tapes ($bold("Fibonacci numbers")$).
 
   #align(center, image("assets/External_Sorting_2.png", width: 100%))
 
+- Q: How to minimize the merge time?
 
+  #align(center, image("assets/External_Sorting_3.png", width: 100%))
+]
+
+- Replacement Selection
+
+#(c.analysis)[
+#align(center, image("assets/External_Sorting_4.png", width: 100%))
+- generate runs of average length $2M$.
+]
+
+- Parallel
+
+#(c.analysis)[
+- In general, for a $k$-way merge we need $2k$ input buffers and $2$ output buffers for $bold("parallel operations")$.
+
+- For each stream, two buffers (A and B) are used. Buffer A is filled with data read from disk, while buffer B is sorted at the same time. When buffer B finishes sorting, it swaps with the now-full buffer A. The empty buffer can then be reused for reading, enabling overlap of I/O and computation.
+]
+
+= Problem Set (Strange? Trash? Not Human?)
+
+== Data Structures
+
+#(c.question)[
+  By definition, for #highlight("a light node") $p$ in a skew heap, the number of descendants of $p$'s right subtree is no more than $1/2$ of the number of descendants of $p$.
+]
+
+`F`. If equals, by definition it is #highlight("a heavy node") (Consider the case the left subtree is empty and the right subtree has only one node).
+
+== Inverted File Index
+
+#(c.question)[
+  In a search engine, #highlight("thresholding for query") retrieves the top $k$ documents according to their weights. (T/F)
+]
+
+`F`. It confuses two different optimizations.
+
+- *Document Thresholding*: Filters and retrieves the top $k$ documents based on their weights.
+- *Query Thresholding*: Optimizes performance by selecting only #highlight("high-frequency or important query terms") to process, rather than the entire query.
+
+Thus the proposition should be #highlight("thresholding for documents").
+
+#(c.question)[
+  When evaluating the performance of #highlight("data retrieval"), it is important to measure the relevancy of the answer set. (T/F)
+]
+
+`F`. It confuses two different concepts.
+
+- *Data retrieval* (eg. SQL Query): #highlight("matches a query exactly").
+  - It is *binary (Y/N)*. We measure *efficiency* (how fast the system responds). 
+- *Information retrieval* (eg. Google Search): #highlight("'about' a certain topic").
+  - It is subjective and based on *relevancy*. We measure *effectiveness* (how relevant the answer set is to the user's needs).
+
+== Backtracking
+
+#(c.question)[
+  What makes the time complexity analysis of a backtracking algorithm very difficult is that #highlight("the sizes of solution spaces may vary"). (T/F)
+]
+
+`F`. Strange problem.
+
+#(c.question)[
+  What makes the time complexity analysis of a backtracking algorithm very difficult is that #highlight("the number of solutions that do satisfy the restriction is hard to estimate"). (T/F)
+]
+
+`T`.
+
+== Approximation Algorithms
+
+#(c.question)[
+  In the bin packing problem, we are asked to pack a list of items $L$ to the minimum number of bins of capacity $1$. For the instance $L$, let $"FF"(L)$ denote the number of bins used by the algorithm First Fit. The instance $L'$ is derived from $L$ by deleting one item from $L$. Then $"FF"(L')$ is at most of $"FF"(L)$. (T/F)
+]
+
+`F`. Consider the instance $L={0.55,0.7,0.55,0.1,0.45,0.15,0.3,0.2}$, and $L'=L-{0.1}$. $"FF"(L')=4$, while $"FF"(L)=3$.
+
+#(c.question)[
+  Consider the bin packing problem which uses a minimum number of bins to accommodate a given list of items. Recall that Next Fit (NF) and First Fit (FF) are two simple approaches, whose (asymptotic) approximation ratios are 2 and 1.7, respectively. Now we focus on a special class $"I2"$ of instances in which only two distinct item sizes appear. Check which of the following statements is true by applying NF and FF on $"I2"$.
+
+A. NF and FF both have improved approximation ratios.
+
+B. NF has an improved approximation ratio, while FF does not.
+
+C. FF has an improved approximation ratio, while NF does not.
+
+D. Neither of NF or FF has an improved approximation ratio.
+]
+
+据说选 `C`. idk.
+
+== External Sorting
+
+#(c.question)[
+  If only one tape drive is available to perform the external sorting, then the tape access time for any algorithm will be $Omega (n^2)$. (T/F)
+]
+
+`T`. idk.
+
+= References
+
+#(c.info)(title: "homework")[
+- https://roderickshao.github.io/RoderickShao_notebook/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E8%AF%BE/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/Homework
+
+- https://mem.ac/course/ads/correction/
+
+]
+
+#(c.note)(title: "notes")[
+- https://wintermelonc.github.io/WintermelonC_Docs/zju/compulsory_courses/ADS/
+
+- https://zhoutimemachine.github.io/note/courses/ads-final-review/
+
+- https://birchtree2.github.io/%E5%A4%A7%E4%BA%8C%E4%B8%8B/ADS
 ]
