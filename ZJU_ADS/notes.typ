@@ -187,7 +187,7 @@ Given an array $A$ of size $n$, find the maximum element in $A$.
 - For each stream, two buffers (A and B) are used. Buffer A is filled with data read from disk, while buffer B is sorted at the same time. When buffer B finishes sorting, it swaps with the now-full buffer A. The empty buffer can then be reused for reading, enabling overlap of I/O and computation.
 ]
 
-= Problem Set (Strange? Trash? Not Human?)
+= Problem Set (Strange? Trash? No Human?)
 
 == Data Structures
 
@@ -196,6 +196,46 @@ Given an array $A$ of size $n$, find the maximum element in $A$.
 ]
 
 `F`. If equals, by definition it is #highlight("a heavy node") (Consider the case the left subtree is empty and the right subtree has only one node).
+
+#(c.question)[
+  We have a binary counter of $k$ bits. Each time we conduct an increment on the counter: $x equiv x+1 (mod 2^k)$ and the cost of the increment is the number of bits we need to flip. For example, when $k=3$, currently we have $x=010$, after increment we have $x=011$. Then this increment costs 1 because only 1 bit flips after increment. If we conduct the increment again, $x=100$. Then this increment costs 3 because we flip 3 bits. Now we conduct $n$ consecutive increments and estimate the total cost. Which of the following statements are TRUE?
+
+  1. If the initial value of the counter is 0, the total cost is $O(n)$.
+  
+  2. If the initial value of the counter is 0, the total cost is $O(n log k)$.
+
+  3. If n = $Omega(k)$, the total cost is $O(n)$.
+
+  4. If n = $Omega(k)$, the total cost is $O(n log k)$.
+
+  A. 2 and 4
+  
+  B. 2 and 3
+  
+  C. 1 and 3
+  
+  D. 1 and 4
+]
+
+`C`. 1 is obvious. Consider 3, for the bit $i$, there are at most $floor(n/2^i)$ flips. Thus the total cost is $O(k)+O(sum_i floor(n/2^i))$. Since $n=Omega(k) arrow.double k=O(n)$, it is $O(n)$. 
+
+#(c.question)[
+  If a leftist heap can be implemented recursively, so can its counterpart skew heap.
+]
+
+`F`. idk. Why not true?
+
+#(c.question)[
+  A binary tree that is not full cannot correspond to an optimal prefix code. (T/F)
+]
+
+`T`. There are $3$ concepts.
+
+- *Full Binary Tree*: every node has either $0$ or $2$ children.
+- *Complete Binary Tree*: all levels are fully filled except possibly the last, which is filled from left to right.
+- *Perfect Binary Tree*: all internal nodes have two children and all leaves are at the same level.
+
+Thus an optimal prefix code must be a full binary tree, otherwise we can #highlight("delete the node with only one child") to reduce the cost.
 
 == Inverted File Index
 
@@ -235,6 +275,24 @@ Thus the proposition should be #highlight("thresholding for documents").
 
 `T`.
 
+== Divide and Conquer
+
+#(c.question)[
+  Is this asymptotic upper bound for the following recursive $T(n)$ is correct?
+  - $T(n)=T(n^(1/3))+T(n^(2/3))+log n$. Then $T(n)=O(log n log log n)$.
+]
+
+`T`. By recursion tree method, the height of the tree is $O(log log n)$, and the cost at each level is $O(log n)$. Thus the total cost is $O(log n log log n)$.
+
+== NP-Completeness
+
+#(c.question)[
+  The following problem is in co-NP. (T/F)
+  - Given a positie integer $K$, is $K$ a prime number?
+]
+
+`T`. This is P problem, and P $subset.eq$ co-NP.
+
 == Approximation Algorithms
 
 #(c.question)[
@@ -255,7 +313,25 @@ C. FF has an improved approximation ratio, while NF does not.
 D. Neither of NF or FF has an improved approximation ratio.
 ]
 
-据说选 `C`. idk.
+`C`. For #highlight("NF") algorithm, we construct $1/"eps"$ pairs:
+
+```
+0.9 - eps, 2 * eps
+...
+0.9 - eps, 2 * eps
+```
+
+Obviously $"OPT"=1/"eps"+1$, while $"NF"=2/"eps"$. Thus the approximation ratio is $2/(1+"eps") ~ 2$.
+
+For #highlight("FF") algorithm, idk. But we can feel it is improved.
+
+== Local Search
+
+#(c.question)[
+  For an optimization problem, given a neighborhood, if its local optimum is also a global optimum, one can reach an optimal solution with #highlight("just one step") of local improvements. (T/F)
+]
+
+`F`. The proposition means that *any local optimum is a global optimum*, thus we can always find the global optimum by #highlight("Local Search"). However, it doesn't mean we can reach the optimum in just one step.
 
 == External Sorting
 

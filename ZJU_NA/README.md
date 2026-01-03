@@ -17,3 +17,10 @@
 https://www.cc98.org/topic/6087366
 
 - https://note.jiepeng.tech/CS/NA/
+
+
+### 考试题型
+
+- 选择
+- 填空
+- 大题（解答，证明）
