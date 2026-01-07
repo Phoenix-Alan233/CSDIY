@@ -1,4 +1,5 @@
 #import "template.typ":*
+#show table: three-line-table
 
 #show :template-title-row.with(
   title: "Advanced Data Structures and Algorithm Analysis",
@@ -20,6 +21,19 @@
   - Randomized Algorithms
   - Parallel Algorithms
   - External Sorting
+
+#figure(
+  table(
+    columns: 5,
+    [Year], [T/F & Choice], [Function], [Programming], [score],
+    [18-19 fall], [easy (1)], [Binary Queue], [DP / BFS], [],
+    [19-20 fall], [hard (5)], [B+ Tree], [DP], [95],
+    [20-21 fall], [medium (3)], [Binary Queue], [DP], [93],
+    [21-22 fall], [easy (1)], [Knapsack], [AVL Tree], [97],
+    [22-23 fall], [medium (4)], [Red Black Tree], [DP], [],
+    [23-24 fall], [medium (3)], [B+ Tree], [DP], [],
+  ),
+)
 ]
 
 = Parallel Algorithms
@@ -293,6 +307,32 @@ Thus the proposition should be #highlight("thresholding for documents").
 
 `T`. This is P problem, and P $subset.eq$ co-NP.
 
+#(c.question)[
+  Which one of the following statements is *FALSE*?
+
+  A. A language $L_1$ is polynomial time transformable to $L_2$ if there exists a polynomial time function $f$ such that $w in L_1$ if $f(w) in L_2$.
+
+  B. If $L_1 in P$ then $L_1 subset.eq "NP" union "co-NP"$.
+
+  C. $L_1 (<=)_p L_2$ and $L_2 (<=)_p L_3$, then $L_1 (<=)_p L_3$.
+
+  D. If language $L_1$ has a polynomial reduction to language $L_2$, then the complement of $L_1$ has a polynomial reduction to the complement of $L_2$.
+]
+
+`A`. Note that *the correct definition of a polynomial-time reduction* is:
+
+$
+  w in L_1 "iff" f(w) in L_2
+$
+
+We cannot change #highlight("iff") to #highlight("if").
+
+The choice `D` is true. Because:
+
+$
+  w in overline(L_1) arrow.double w in.not L_1 arrow.double f(w) in.not L_2 arrow.double f(w) in overline(L_2) 
+$
+
 == Approximation Algorithms
 
 #(c.question)[
@@ -332,6 +372,49 @@ For #highlight("FF") algorithm, idk. But we can feel it is improved.
 ]
 
 `F`. The proposition means that *any local optimum is a global optimum*, thus we can always find the global optimum by #highlight("Local Search"). However, it doesn't mean we can reach the optimum in just one step.
+
+#(c.question)[
+  Consider the maximum cut problem. Let $V$ be the set of vertices, let $n=|V|$, and let $W$ be the total edge weight. We have already learned a $(2+epsilon)$-approximation local search algorithm that needs $O(n/epsilon log W)$ flips. In the following, we are trying to further reduce the number of flips by starting the algorithm with a good initial solution. Note that each vertex $v$ naturally forms a cut $({v}, V-{v})$. Let $({v^*},V-{v^*})$ be the one with the largest weight among all such cuts. If we start the $(2+epsilon)$-approximation local search algorithm with $({v^*},V-{v^*})$, how many flips do we need in the worst case?
+
+  A. $n/epsilon log W$
+
+  B. $n/epsilon log W/n$
+
+  C. $n/epsilon log n$
+
+  D. $n/epsilon$ 
+]
+
+maybe `C`. idk.
+
+== Randomized Algorithms
+
+#(c.question)[
+A *Las Vegas algorithm* is a randomized algorithm that always gives the correct result, however the runtime of a Las Vegas algorithm differs depending on the input.
+
+A *Monte Carlo algorithm* is a randomized algorithm whose output may be incorrect with a certain (typically small) probability. The running time for the algorithm is fixed however.
+
+Then if a Monte Carlo algorithm runs in $O(n^2)$ time, #highlight("with the probability 50% of producing a correct solution"), then there must be a Las Vegas algorithm that can get a solution in $O(n^2)$ time in expectation. (T/F)
+]
+
+`F`. We cannot verify if the answer is the correct solution.
+
+== Parallel Algorithm
+
+#(c.question)[
+  There are $N$ different numbers. What's the minimum time complexity to find the $K$-th largest number with *parallel algorithms*? (No need to worry about access conflicts)
+
+A. $O(log n)$
+
+B. $O(log log n)$
+
+C. $O(1)$
+
+D. $O(log sqrt(n))$
+
+]
+
+`C`. idk.
 
 == External Sorting
 

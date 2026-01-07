@@ -12,3 +12,7 @@
 - [吴一航, 辅学课程讲义](https://yhwu-is.github.io/Teach/tcs/ads/ads/)
 
 https://www.cc98.org/topic/6342400
+
+- https://bugbyteme.github.io/ads/23-24/23-24TF.html
+
+- https://bugbyteme.github.io/ads/22-23.html

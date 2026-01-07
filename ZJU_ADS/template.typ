@@ -130,6 +130,94 @@
   analysis:     (title: "Analysis", it) =>    callout(title: title, color: rgb(0, 133, 91))[#it],
 )
 
+#let font = (
+  // 中文字体
+  zh_shusong: "SimSun",
+  zh_zhongsong: "STZhongsong",
+  zh_kai: "KaiTi",
+  zh_hei: "SimHei",
+  zh_fangsong: "STFangsong",
+  // 英文字体
+  en_sans_serif: "New Computer Modern",
+  en_serif: "New Computer Modern",
+  en_typewriter: "Courier New",
+  en_code: "Consolas",
+)
+#let font-size = (
+  s2: 18pt, // 二号
+  n3: 16pt, // 三号
+  s3: 15pt, // 小三
+  n4: 14pt, // 四号
+  s4: 12pt, // 小四
+  n5: 10.5pt, // 五号
+  s5: 9pt, // 小五
+)
+#let config = (
+  // 字号设置
+  text-size: font-size.n5,
+  author-size: font-size.s4,
+  title-size: font-size.s2,
+  title1-size: font-size.s3,
+  title2-size: font-size.n4,
+  title3-size: font-size.s4,
+  // 字体设置
+  title-font: (font.en_serif, font.zh_hei),
+  author-font: (font.en_sans_serif, font.zh_shusong),
+  body-font: (font.en_serif, font.zh_shusong),
+  heading-font: (font.en_serif, font.zh_zhongsong),
+  caption-font: (font.en_serif, font.zh_kai),
+  header-font: (font.en_serif, font.zh_kai),
+  strong-font: (font.en_serif, font.zh_hei),
+  emph-font: (font.en_serif, font.zh_kai),
+  raw-font: (font.en_code, font.zh_hei),
+  // 间距设置
+  spacing: 1.5em,
+  leading: 1.0em,
+  indent: 2em,
+  small-space: 1em,
+  block-space: 0.75em,
+  // 颜色设置
+  raw-color: rgb("#e1f7f7"),
+  problem-color: rgb(241, 241, 255),
+  summary-color: rgb(240, 248, 255),
+  intro-color: rgb("#d4fceb"), 
+  proof-color: rgb("#edeaea"),
+  // 列表样式
+  list-marker: ([•], [◦], [▶]),
+  enum-numbering: ("1.", "(1)", "①", "a."),
+  // 表格样式
+  table-stroke: 0.08em,
+  table-header-stroke: 0.05em,
+)
+// 三线表格
+#let three-line-table(it) = {
+  if it.children.any(c => c.func() == table.hline) {
+    return it
+  }
+
+  let meta = it.fields()
+  meta.stroke = none
+  meta.remove("children")
+
+  let header = it.children.find(c => c.func() == table.header)
+  let cells = it.children.filter(c => c.func() == table.cell)
+
+  if header == none {
+    let columns = meta.columns.len()
+    header = table.header(..cells.slice(0, columns))
+    cells = cells.slice(columns)
+  }
+
+  return table(
+    ..meta,
+    table.hline(stroke: config.table-stroke),
+    header,
+    table.hline(stroke: config.table-header-stroke),
+    ..cells,
+    table.hline(stroke: config.table-stroke),
+  )
+}
+
 // shorthand for callout
 #let c = callout-styles
 
