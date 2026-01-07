@@ -26,12 +26,16 @@
   table(
     columns: 5,
     [Year], [T/F & Choice], [Function], [Programming], [score],
-    [18-19 fall], [easy (1)], [Binary Queue], [DP / BFS], [],
-    [19-20 fall], [hard (5)], [B+ Tree], [DP], [95],
-    [20-21 fall], [medium (3)], [Binary Queue], [DP], [93],
-    [21-22 fall], [easy (1)], [Knapsack], [AVL Tree], [97],
-    [22-23 fall], [medium (4)], [Red Black Tree], [DP], [],
-    [23-24 fall], [medium (3)], [B+ Tree], [DP], [],
+    [15-16 summer], [easy (1)], [Binary Queue], [Quick Power], [],
+    [16-17 summer], [easy (2)], [Binary Queue], [DP], [],
+    [17-18 summer], [medium (3)], [Red Black Tree], [AVL Tree], [],
+    [18-19 summer], [easy (1)], [Binary Queue], [DP / BFS], [],
+    [19-20 summer], [hard (5)], [B+ Tree], [DP], [95],
+    [20-21 summer], [medium (3)], [Binary Queue], [DP], [93],
+    [21-22 summer], [easy (1)], [Knapsack], [AVL Tree], [97],
+    [22-23 summer], [medium (4)], [Red Black Tree], [DP], [],
+    [23-24 summer], [medium (3)], [B+ Tree], [DP], [],
+    [24-25 winter], [medium (3)], [B+ Tree], [DP], [90]
   ),
 )
 ]
@@ -423,6 +427,36 @@ D. $O(log sqrt(n))$
 ]
 
 `T`. idk.
+
+== Appendix (IF $P != "NP"$)
+
+- Activity Selection Problem
+  - Shortest First (SF) method, $2-"approx"$.
+- Scheduling Job Problem ($m$ machines)
+  - Shortest First (SF) method, $(2-1/m)-"approx"$.
+- Knapsack Problem
+  - FPTAS (any $epsilon$)
+  - $2-"approx"$
+- K-center problem
+  - $2-"approx"$ (metric graph & Euclidean space)
+  - unbounded (general case)
+- Bin Packing Problem
+  - NF $2-"approx"$, FF & BF, $1.7-"approx"$.
+  - Offline Bin Packing: can not be $alpha-"approx"$ for any $alpha<3/2$.
+  - Online Bin Packng: can not be $alpha-"approx"$ for any $alpha<5/3$.
+- Vertex Cover Problem
+  - $2-"approx"$
+  - degree greedy: $O(log n)-"approx"$.
+- Dominating Set Problem
+  - $O(log n)-"approx"$.
+- Maximum Independent Set Problem
+  - $O(n)-"approx"$.
+- Maximum Clique problem
+  - $O(n)-"approx"$.
+
+- Maxmimum Cut Problem
+  - State-flipping algorithm, $2-"approx"$
+  - Big-improvement algorithm, $(2+epsilon)-"approx"$.
 
 = References
 
