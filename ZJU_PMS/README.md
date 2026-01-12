@@ -12,3 +12,5 @@ PS5 看到 39 页。
 ---
 
 - 期末历年题（“与”的版本）：https://www.cc98.org/topic/6366441
+
+- https://www.cc98.org/topic/6371709
