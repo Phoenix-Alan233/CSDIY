@@ -21,7 +21,7 @@
   - MATH 1164GH: 数学分析 (甲) II (H)
 - [x] ZJU_MM
   - MATH 2731MZ: 数学建模
-- ZJU_PMS
+- [x] ZJU_PMS
   - MATH 2461FZ: 概率论和数理统计
 
 ### 编程基础
