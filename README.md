@@ -55,8 +55,8 @@
 
 - [x] Harvard_AI
   - CS 50 AI: Introduction to Artificial Intelligence with Python
-- ZJU_AI
-  - CS 2065M: 人工智能引论
+- [x] ZJU_AI
+  - CS 2065M: 人工智能引论（垃圾课）
 
 ### LLM
 
