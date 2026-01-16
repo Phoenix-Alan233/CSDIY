@@ -24,3 +24,5 @@ https://www.cc98.org/topic/6087366
 - 选择
 - 填空
 - 大题（解答，证明）
+
+- https://note.noughtq.top/math/na/
